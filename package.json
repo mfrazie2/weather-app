@@ -1,0 +1,26 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Get your local weather",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfrazie2/weather-app.git"
+  },
+  "keywords": [],
+  "author": "Mike Frazier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfrazie2/weather-app/issues"
+  },
+  "homepage": "https://github.com/mfrazie2/weather-app#readme",
+  "dependencies": {
+    "bower": "1.7.1",
+    "express": "4.13.3"
+  },
+  "cacheDirectores": ["node_modules"]
+}
