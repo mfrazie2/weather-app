@@ -1,4 +1,5 @@
 angular.module("weather", [
+  'weather.services',
   'ngRoute'
   ])
 .config(function ($routeProvider) {
