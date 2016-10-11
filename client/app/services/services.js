@@ -1,5 +1,5 @@
 angular.module("weather.services", [])
-.factory('Weather', function ($http) {
+.factory('WeatherService', function ($http) {
   var getLocation = function () {
     return $http({
       method: 'GET',
@@ -8,12 +8,12 @@ angular.module("weather.services", [])
       return res.data;
     });
   };
-  
+
   var getLocalWeather = function (city) {
     var options = {
       q: city,
       units: 'metric',
-      appid: '061f24cf3cde2f60644a8240302983f2'
+      appid: window.WEATHER_API_KEY
     };
     return $http({
       method: 'GET',
@@ -23,7 +23,7 @@ angular.module("weather.services", [])
       return res.data;
     });
   };
-  
+
   return {
     getLocation: getLocation,
     getLocalWeather: getLocalWeather
