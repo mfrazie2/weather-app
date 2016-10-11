@@ -1,8 +1,8 @@
 angular.module('weather.main', [])
 .controller('MainController', function($scope, WeatherService) {
   $scope.greeting = "Barf Barf";
-  $scope.currentWeather = {};
-  $scope.currentLocation = {};
+  $scope.currentWeather = null;
+  $scope.currentLocation = null;
   $scope.getLocation = function () {
     WeatherService.getLocation()
       .then(function (res) {
@@ -11,7 +11,6 @@ angular.module('weather.main', [])
           state: res.region,
           loc: res.loc.split(',')
         };
-        console.log($scope.currentLocation);
       });
   };
 
@@ -19,6 +18,7 @@ angular.module('weather.main', [])
     WeatherService.getLocalWeather($scope.currentLocation.city)
       .then(function (res) {
         console.log(JSON.stringify(res, null, 2));
+        $scope.currentWeather = res;
       });
   };
 

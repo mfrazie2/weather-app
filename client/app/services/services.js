@@ -20,8 +20,28 @@ angular.module("weather.services", [])
       url: 'http://api.openweathermap.org/data/2.5/weather?',
       params: options
     }).then(function (res) {
-      return res.data;
+      return mapWeatherResults(res.data);
     });
+  };
+
+  var getIconUrl = function (iconCode) {
+    return 'http://openweathermap.org/img/w/' + iconCode + '.png';
+  }
+
+  var mapWeatherResults = function (weatherObj) {
+    return {
+      current: {
+        temp: weatherObj.main.temp,
+        description: weatherObj.weather.description,
+        icon: getIconUrl(weatherObj.weather.icon)
+      },
+      day: {
+        highTemp: weatherObj.main.temp_max,
+        lowTemp: weatherObj.main.temp_min,
+        sunrise: weatherObj.sys.sunrise,
+        sunset: weatherObj.sys.sunset
+      }
+    }
   };
 
   return {
