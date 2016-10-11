@@ -2,4 +2,6 @@ node_modules
 
 client/lib
 
+client/config.js
+
 npm-debug.log
