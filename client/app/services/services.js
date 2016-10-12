@@ -27,19 +27,22 @@ angular.module("weather.services", [])
   var getIconUrl = function (iconCode) {
     return 'http://openweathermap.org/img/w/' + iconCode + '.png';
   }
+  var convertTime = function (time) {
+    return new Date(time * 1000);
+  }
 
   var mapWeatherResults = function (weatherObj) {
     return {
       current: {
         temp: weatherObj.main.temp,
-        description: weatherObj.weather.description,
-        icon: getIconUrl(weatherObj.weather.icon)
+        description: weatherObj.weather[0].description,
+        icon: getIconUrl(weatherObj.weather[0].icon)
       },
       day: {
         highTemp: weatherObj.main.temp_max,
         lowTemp: weatherObj.main.temp_min,
-        sunrise: weatherObj.sys.sunrise,
-        sunset: weatherObj.sys.sunset
+        sunrise: convertTime(weatherObj.sys.sunrise),
+        sunset: convertTime(weatherObj.sys.sunset)
       }
     }
   };
