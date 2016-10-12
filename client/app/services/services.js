@@ -39,8 +39,6 @@ angular.module("weather.services", [])
         icon: getIconUrl(weatherObj.weather[0].icon)
       },
       day: {
-        highTemp: weatherObj.main.temp_max,
-        lowTemp: weatherObj.main.temp_min,
         sunrise: convertTime(weatherObj.sys.sunrise),
         sunset: convertTime(weatherObj.sys.sunset)
       }

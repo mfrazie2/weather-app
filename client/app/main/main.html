@@ -9,15 +9,12 @@
 
 	<div class="current-weather" ng-if="currentWeather">
 		Currently
-		<p>Temp: <span>{{currentWeather.current.temp}} C</span></p>
+		<p>Temp: <span>{{currentWeather.current.temp}}&#8451;</span></p>
 		<img src="{{currentWeather.current.icon}}" />
 		<div>
 			Today:
 			<p>Sunrise: <span>{{currentWeather.day.sunrise | date:'medium'}}</span></p>
 			<p>Sunet: <span>{{currentWeather.day.sunset | date:'medium'}}</span></p>
-			<p>High Temp: <span>{{currentWeather.day.highTemp}} C</span></p>
-			<p>Low Temp: <span>{{currentWeather.day.lowTemp}} C</span></p>
-
 		</div>
 	</div>
 
